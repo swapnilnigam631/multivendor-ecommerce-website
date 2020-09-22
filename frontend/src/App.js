@@ -15,6 +15,7 @@ import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import OrderScreen from './screens/OrderScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import OrdersScreen from './screens/OrdersScreen';
+import Carousel from 'react-bootstrap-carousel/dist/react-bootstrap-carousel';
 
 function App() {
   const userSignin = useSelector((state) => state.userSignin);
@@ -27,6 +28,7 @@ function App() {
     document.querySelector('.sidebar').classList.remove('open');
   };
   return (
+    
     <BrowserRouter>
       <div className="grid-container">
         <header className="header">
@@ -54,6 +56,7 @@ function App() {
             )}
           </div>
         </header>
+        
         <aside className="sidebar">
           <h3>Shopping Categories</h3>
           <button className="sidebar-close-button" onClick={closeMenu}>
@@ -78,8 +81,11 @@ function App() {
             </li>
           </ul>
         </aside>
+
         <main className="main">
+      
           <div className="content">
+            
             <Route path="/orders" component={OrdersScreen} />
             <Route path="/profile" component={ProfileScreen} />
             <Route path="/order/:id" component={OrderScreen} />

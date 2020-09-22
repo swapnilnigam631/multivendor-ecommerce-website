@@ -67,7 +67,7 @@ function ProductsScreen1(props) {
     dispatch(
       ssaveProduct({
         _id: id,
-        name,
+        name:props.vname,
         price,
         image,
         brand,

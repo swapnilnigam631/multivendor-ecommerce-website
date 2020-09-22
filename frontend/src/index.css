@@ -4,8 +4,14 @@ html {
 }
 body {
   font: 1.6rem Helvetica;
-  height: 100vh;
+  height: 100%;
   margin: 0;
+  background-image: url('./images/bck.jpg');
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  background-color:black;
+  align-items: center;
 }
 button {
   font-size: 1.6rem;
@@ -439,7 +445,7 @@ tbody > tr:nth-child(odd) {
   list-style-type: none;
   padding: 0;
   margin: 1rem auto;
-  max-width: 45rem;
+  max-width: 85rem;
   justify-content: space-between;
   align-items: center;
 }
@@ -451,15 +457,52 @@ tbody > tr:nth-child(odd) {
   border: 0.1rem #c0c0c0 solid;
   font-size: 1.6rem;
 }
-.categories {
-  padding: 0;
-  list-style-type: none;
-}
-.categories a {
-  display: flex;
-  padding: 1rem;
-}
 
-.categories a:hover {
-  background-color: #c0c0c0;
+.OOp{
+  height:500px;
+  width:100%;
+text-align: center;
+  display: flex;
+  
+  flex-direction: column;
+  background-position: center;
+  background-image:url('./images/a.jpg');
+  background-repeat: no-repeat;
+  align-items: center;
+}
+.OOp li{
+  color:white;
+  padding:30px;
+  text-decoration: none;
+  list-style-type: none;
+  font-size: 30px;
+}
+.button1{
+ 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;        
+}
+.OOp img{
+  border-radius: 50%;
+}
+.button2{
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+ 
+
+}
+.button1 :hover{
+  height:102px;
+  width:102px;
+  transition:1s;
+  cursor: pointer;
+}
+.button2 :hover{
+  height:102px;
+  width:102px;
+  transition:1s;
+  cursor: pointer;
 }

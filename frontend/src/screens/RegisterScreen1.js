@@ -10,13 +10,13 @@ function RegisterScreen(props) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [BUYER, setType] = useState('');
+  const [Seller, setType] = useState('');
   const [rePassword, setRePassword] = useState('');
   const userRegister = useSelector(state => state.userRegister);
   const { loading, userInfo, error } = userRegister;
   const dispatch = useDispatch();
   
-  const redirect = props.location.search ? props.location.search.split("=")[1] : '/';
+  const redirect = props.location.search ? props.location.search.split("=")[1] : 'seller';
   
   useEffect(() => {
     if (userInfo) {
@@ -35,7 +35,7 @@ function RegisterScreen(props) {
     <form onSubmit={submitHandler} >
       <ul className="form-container">
         <li>
-          <h2>Create Account As User</h2>
+          <h2>Create Account As Seller</h2>
         </li>
         
         <li>
@@ -56,7 +56,7 @@ function RegisterScreen(props) {
           <input type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)}>
           </input>
         </li>
-        
+       
         <li>
           <label htmlFor="password">Password</label>
           <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)}>

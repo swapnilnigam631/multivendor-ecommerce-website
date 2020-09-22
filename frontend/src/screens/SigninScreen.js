@@ -54,7 +54,10 @@ function SigninScreen(props) {
           New to Stay Bunk?
         </li>
         <li>
-          <Link to={redirect === "/" ? "register" : "register?redirect=" + redirect} className="button secondary text-center" >Create your Stay Bunk</Link>
+          <Link to={redirect === "/" ? "register" : "register?redirect=" + redirect} className="button secondary text-center" >SignUp as Buyer</Link>
+        </li>
+        <li>
+          <Link to={redirect === "seller" ? "register" : "register?redirect=" + redirect} className="button secondary text-center" >SignUp as Seller</Link>
         </li>
       </ul>
     </form>

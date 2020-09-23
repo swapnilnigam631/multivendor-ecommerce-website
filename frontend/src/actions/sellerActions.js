@@ -17,11 +17,12 @@ import {
 } from '../constants/productConstants';
 import axios from 'axios';
 import Axios from 'axios';
+import { PresignedPost } from 'aws-sdk/clients/s3';
 
 
 const slistProducts = (  
   
-  vname = '',
+  vname = PresignedPost.vname,
   searchKeyword = '',
   sortOrder = ''
 ) => async (dispatch) => {

@@ -57,7 +57,7 @@ function SigninScreen(props) {
           <Link to={redirect === "/" ? "register" : "register?redirect=" + redirect} className="button secondary text-center" >SignUp as Buyer</Link>
         </li>
         <li>
-          <Link to={redirect === "seller" ? "register" : "register?redirect=" + redirect} className="button secondary text-center" >SignUp as Seller</Link>
+          <Link to={redirect === "/" ? "register1" : "register1?redirect=" + redirect} className="button secondary text-center" >SignUp as Seller</Link>
         </li>
       </ul>
     </form>

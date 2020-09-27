@@ -7,6 +7,7 @@ import CartScreen from './screens/CartScreen';
 import SigninScreen from './screens/SigninScreen';
 import { useSelector } from 'react-redux';
 import RegisterScreen from './screens/RegisterScreen';
+import RegisterScreen1 from './screens/RegisterScreen1';
 import ProductsScreen from './screens/ProductsScreen';
 import ProductsScreen1 from './screens/SellerScreen';
 import ShippingScreen from './screens/ShippingScreen';
@@ -15,6 +16,7 @@ import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import OrderScreen from './screens/OrderScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import OrdersScreen from './screens/OrdersScreen';
+import SigninScreen1 from './screens/signinasseller';
 import Carousel from 'react-bootstrap-carousel/dist/react-bootstrap-carousel';
 
 function App() {
@@ -83,7 +85,7 @@ function App() {
         </aside>
 
         <main className="main">
-      
+         
           <div className="content">
             
             <Route path="/orders" component={OrdersScreen} />
@@ -95,7 +97,9 @@ function App() {
             <Route path="/payment" component={PaymentScreen} />
             <Route path="/placeorder" component={PlaceOrderScreen} />
             <Route path="/signin" component={SigninScreen} />
+            <Route path="/sellersignin" component={SigninScreen1} />
             <Route path="/register" component={RegisterScreen} />
+            <Route path="/register1" component={RegisterScreen1} />
             <Route path="/product/:id" component={ProductScreen} />
             <Route path="/cart/:id?" component={CartScreen} />
             <Route path="/category/:id" component={HomeScreen} />

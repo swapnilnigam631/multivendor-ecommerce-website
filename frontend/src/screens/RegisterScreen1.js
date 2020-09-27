@@ -5,18 +5,21 @@ import { register1} from '../actions/userActions';
 
 
 
-function RegisterScreen(props) {
+function RegisterScreen1(props) {
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [Seller, setType] = useState('');
+  const [gender, setGender]=useState('');
+  const [phone, setPhone]=useState('');
+  const[address, setAddress]=useState('');
+  
   const [rePassword, setRePassword] = useState('');
   const userRegister = useSelector(state => state.userRegister);
   const { loading, userInfo, error } = userRegister;
   const dispatch = useDispatch();
   
-  const redirect = props.location.search ? props.location.search.split("=")[1] : 'seller';
+  const redirect = props.location.search ? props.location.search.split("=")[1] : '/';
   
   useEffect(() => {
     if (userInfo) {
@@ -30,7 +33,7 @@ function RegisterScreen(props) {
   
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(register1(name, email, password));
+    dispatch(register1(name, email, password, gender, phone, address ));
   }
   return <div className="form">
     <form onSubmit={submitHandler} >
@@ -50,39 +53,18 @@ function RegisterScreen(props) {
           <input type="name" name="name" id="name" onChange={(e) => setName(e.target.value)}>
           </input>
         </li>
-        <li>
-        <label htmlFor="type">   
-  Type of ownership :  
-  </label>   
-  <select>  
-  <option value="type">TYPE</option>  
-  <option value="2bhk">2bhk</option>  
-  <option value="3bhk">3bhk</option>  
-  <option value="flat">Flat</option>  
-  <option value="hostel">Hostel</option>  
-  <option value="room">Room</option>  
-   
-  </select>  
-    
-   </li>
-   <li>
-  <label htmlFor="gender">   
-  Gender :  
-  </label> 
-  <input type="radio" name="male"/> Male  
-  <input type="radio" name="female"/> Female 
-  <input type="radio" name="other"/> Other  
-    </li>
+        
     <li>
     
   <label htmlFor="phone">   
   Phone :  
   </label>  
-  <input type="text" name="country code"  value="+91" size="2"/>   
-  <input type="text" name="phone" size="10"/>  
+  <input type="text" name="phone" id="phone" placeholder="+91" size="12" onChange={(e) => setPhone(e.target.value)}/>   
+  </li>
+  <li>
   Address  
     
-  <textarea cols="80" rows="5" value="address">  
+  <textarea cols="80" rows="5" name="address" id="address" placeholder="address" onChange={(e) => setAddress(e.target.value)}>  
   </textarea>  
         </li>
         <li>
@@ -117,4 +99,4 @@ function RegisterScreen(props) {
   </div>
   
 }
-export default RegisterScreen;
+export default RegisterScreen1;

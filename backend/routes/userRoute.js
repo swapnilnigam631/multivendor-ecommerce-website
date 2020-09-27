@@ -1,6 +1,7 @@
 import express from 'express';
 import User from '../models/userModel';
-import { getToken, isAuth } from '../util';
+ import Seller from '../models/sellerModel';
+import { getToken, isAuth } from '../util'; 
 
 const router = express.Router();
 
@@ -41,12 +42,34 @@ router.post('/signin', async (req, res) => {
     res.status(401).send({ message: 'Invalid Email or Password.' });
   }
 });
+
+router.post('/signin1', async (req, res) => {
+  const signinUser = await Seller.findOne({
+    email: req.body.email,
+    password: req.body.password,
+  });
+  if (signinUser) {
+    res.send({
+      _id: signinUser.id,
+      name: signinUser.name,
+      email: signinUser.email,
+      isAdmin: signinUser.isAdmin,
+      token: getToken(signinUser),
+    });
+  } else {
+    res.status(401).send({ message: 'Invalid Email or Password.' });
+  }
+});
+
 router.post('/register1', async (req, res) => {
-  const user = new User({
+  const user = new Seller({
     name: req.body.name,
     email: req.body.email,
     password: req.body.password,
-    vname:req.body.vname,
+    gender: req.body.gender,
+    phone: req.body.phone,
+    address: req.body.address
+
   });
   const newUser = await user.save();
   if (newUser) {
@@ -54,7 +77,9 @@ router.post('/register1', async (req, res) => {
       _id: newUser.id,
       name: newUser.name,
       email: newUser.email,
-      vname :newUser.vname,
+      gender:newUser.gender,
+      phone:newUser.phone,
+      address:newUser.address,
       isAdmin: newUser.isAdmin,
       token: getToken(newUser),
     });

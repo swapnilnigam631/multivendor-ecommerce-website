@@ -17,20 +17,20 @@ import {
 } from '../constants/productConstants';
 import axios from 'axios';
 import Axios from 'axios';
-import { PresignedPost } from 'aws-sdk/clients/s3';
+
 
 
 const slistProducts = (  
   
-  vname = PresignedPost.vname,
+  category = '',
   searchKeyword = '',
   sortOrder = ''
 ) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST });
     const { data } = await axios.get(
-      '/api/products/s?vname=' +
-      "haha" +
+      '/api/products/s?category=' +
+      category +
         '&searchKeyword=' +
         searchKeyword +
         '&sortOrder=' +

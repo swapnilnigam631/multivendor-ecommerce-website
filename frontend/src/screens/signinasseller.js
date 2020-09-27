@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { signin } from '../actions/userActions';
+import { signin1 } from '../actions/userActions';
 
-function SigninScreen(props) {
+function SigninScreen1(props) {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const userSignin = useSelector(state => state.userSignin);
   const { loading, userInfo, error } = userSignin;
   const dispatch = useDispatch();
-  const redirect = props.location.search ? props.location.search.split("=")[1] : '/';
+  const redirect = '/sellerProfile/:id';
   useEffect(() => {
     if (userInfo) {
       props.history.push(redirect);
@@ -22,7 +22,7 @@ function SigninScreen(props) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(signin(email, password));
+    dispatch(signin1(email, password));
 
   }
   return <div className="form">
@@ -50,9 +50,7 @@ function SigninScreen(props) {
         <li>
           <button type="submit" className="button primary">Signin</button>
         </li>
-        <li>
-          <Link to={redirect === "/" ? "sellersignin" : "register?redirect=" + redirect} className="button secondary text-center" >Signin as Seller</Link>
-        </li>
+        
         <li>
           New to Stay Bunk?
         </li>
@@ -66,4 +64,4 @@ function SigninScreen(props) {
     </form>
   </div>
 }
-export default SigninScreen;
+export default SigninScreen1;

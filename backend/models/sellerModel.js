@@ -1,15 +1,17 @@
 import mongoose from 'mongoose';
 
-const userSchema = new mongoose.Schema({
+const sellerSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: {
     type: String, required: true, unique: true, index: true, dropDups: true,
   },
   password: { type: String, required: true },
   isAdmin: { type: Boolean, required: true, default: false },
+  gender:{type: String},
+  phone:{type: String},
+  address:{type:String},
 });
 
-const userModel = mongoose.model('User', userSchema);
+const sellerModel = mongoose.model('Seller', sellerSchema);
 
-export default userModel;
- 
+export default sellerModel;

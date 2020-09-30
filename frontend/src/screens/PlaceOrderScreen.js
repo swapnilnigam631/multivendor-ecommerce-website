@@ -25,7 +25,7 @@ function PlaceOrderScreen(props) {
   const placeOrderHandler = () => {
     // create an order
     dispatch(createOrder({
-      orderItems: cartItems, shipping, payment, itemsPrice, shippingPrice,
+      orderItems: cartItems, shipping, payment, itemsPrice, shippingPrice, 
       taxPrice, totalPrice
     }));
   }
@@ -42,7 +42,7 @@ function PlaceOrderScreen(props) {
       <div className="placeorder-info">
         <div>
           <h3>
-            Shipping
+            Customer Information
           </h3>
           <div>
             {cart.shipping.address}, {cart.shipping.city},
@@ -84,7 +84,7 @@ function PlaceOrderScreen(props) {
 
                       </div>
                       <div>
-                        No. of person: {item.qty}
+                        No. of months: {item.qty}
                       </div>
                     </div>
                     <div className="cart-price">

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import {
   saveProduct,
@@ -67,11 +68,11 @@ function ProductsScreen(props) {
         name,
         price,
         image,
-        brand,
+        brand,vname,
         category,
         countInStock,
         description,
-        vname,
+        
       })
     );
   };
@@ -104,7 +105,11 @@ function ProductsScreen(props) {
         <h3>Products</h3>
         <button className="button primary" onClick={() => openModal({})}>
           Create Product
+        </button >
+        <button className="button primary">
+        <Link to="/orders"  >Orders</Link>
         </button>
+        
       </div>
       {modalVisible && (
         <div className="form">
@@ -118,7 +123,7 @@ function ProductsScreen(props) {
                 {errorSave && <div>{errorSave}</div>}
               </li>
 
-              <li>
+              <li>  
                 <label htmlFor="name">Name</label>
                 <input
                   type="text"
@@ -162,13 +167,8 @@ function ProductsScreen(props) {
               </li>
               <li>
               <label htmlFor="vname">Vname</label>
-                <input
-                  type="text"
-                  name="vname"
-                  value={vname}
-                  id="vname"
-                  onChange={(e) => setVname(e.target.value)}
-                ></input>
+              <input type="text" name="vname" id="vname" value={vname} onChange={(e) => setVname(e.target.value)}/>   
+ 
               </li>
 
               <li>

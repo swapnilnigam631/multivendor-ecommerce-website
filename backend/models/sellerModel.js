@@ -6,7 +6,7 @@ const sellerSchema = new mongoose.Schema({
     type: String, required: true, unique: true, index: true, dropDups: true,
   },
   password: { type: String, required: true },
-  isAdmin: { type: Boolean, required: true, default: false },
+  isAdmin: { type: Boolean, required: true, default: true },
   gender:{type: String},
   phone:{type: String},
   address:{type:String},

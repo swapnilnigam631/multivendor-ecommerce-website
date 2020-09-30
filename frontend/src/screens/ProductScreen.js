@@ -89,7 +89,7 @@ function ProductScreen(props) {
                   {product.countInStock > 0 ? 'In Stock' : 'Unavailable.'}
                 </li>
                 <li>
-                  Qty:{' '}
+                  Number of months:{' '}
                   <select
                     value={qty}
                     onChange={(e) => {

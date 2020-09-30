@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import {
-  ssaveProduct,
+  saveProduct,
   slistProducts,
-  sdeleteProdcut,
-} from '../actions/sellerActions';
+  deleteProdcut,
+} from '../actions/productActions';
 
 function ProductsScreen1(props) {
   const userSignin = useSelector((state) => state.userSignin);
@@ -24,7 +24,7 @@ function ProductsScreen1(props) {
   const [uploading, setUploading] = useState(false);
   const productList = useSelector((state) => state.productList);
   const { loading, products, error } = productList;
-
+  
   const productSave = useSelector((state) => state.productSave);
   const {
     loading: loadingSave,
@@ -44,7 +44,7 @@ function ProductsScreen1(props) {
     if (successSave) {
       setModalVisible(false);
     }
-    dispatch(slistProducts());
+    dispatch(slistProducts(userInfo.name,'',''));
     return () => {
       //
     };
@@ -65,23 +65,22 @@ function ProductsScreen1(props) {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(
-      ssaveProduct({
+      saveProduct({
         _id: id,
-        name:props.vname,
+        name,
         price,
         image,
-        brand,
+        brand,vname,
         category,
         countInStock,
         description,
-        vname,
+        
       })
     );
   };
   const deleteHandler = (product) => {
-    dispatch(sdeleteProdcut(product._id));
+    dispatch(deleteProdcut(product._id));
   };
-  
   const uploadFileHandler = (e) => {
     const file = e.target.files[0];
     const bodyFormData = new FormData();
@@ -109,6 +108,9 @@ function ProductsScreen1(props) {
         <button className="button primary" onClick={() => openModal({})}>
           Create Product
         </button>
+        <button className="button primary">
+        <Link to="/orders1"  >Orders</Link>
+        </button>
       </div>
       {modalVisible && (
         <div className="form">
@@ -122,7 +124,7 @@ function ProductsScreen1(props) {
                 {errorSave && <div>{errorSave}</div>}
               </li>
 
-              <li>
+              <li>  
                 <label htmlFor="name">Name</label>
                 <input
                   type="text"
@@ -166,13 +168,8 @@ function ProductsScreen1(props) {
               </li>
               <li>
               <label htmlFor="vname">Vname</label>
-                <input
-                  type="text"
-                  name="vname"
-                  value={vname}
-                  id="vname"
-                  onChange={(e) => setVname(e.target.value)}
-                ></input>
+              <input  type="text" name="vname" id="vname" value={vname} onChange={(e) => setVname(userInfo.name)}/>   
+ 
               </li>
 
               <li>
@@ -237,6 +234,7 @@ function ProductsScreen1(props) {
             </tr>
           </thead>
           <tbody>
+            
             {products.map((product) => (
               <tr key={product._id}>
                 <td>{product._id}</td>

@@ -115,6 +115,7 @@ router.post('/', isAuth, isAdmin, async (req, res) => {
     description: req.body.description,
     rating: req.body.rating,
     numReviews: req.body.numReviews,
+    vname:req.body.vname,
   });
   const newProduct = await product.save();
   if (newProduct) {

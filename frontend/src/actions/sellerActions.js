@@ -20,21 +20,18 @@ import Axios from 'axios';
 
 
 
-const slistProducts = (  
-  
-  category = '',
-  searchKeyword = '',
-  sortOrder = ''
-) => async (dispatch) => {
+const slistProducts = (seller) => async (dispatch) => {
   try {
+    const {match: {params}}=this.props;
+    
     dispatch({ type: PRODUCT_LIST_REQUEST });
     const { data } = await axios.get(
-      '/api/products/s?category=' +
-      category +
+      '/api/products/s?name=' +
+      "aaaaaa" +
         '&searchKeyword=' +
-        searchKeyword +
+        'huhihi' +
         '&sortOrder=' +
-        sortOrder
+        'iuhiuj'
     );
     dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
   } catch (error) {

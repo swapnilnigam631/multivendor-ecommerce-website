@@ -39,6 +39,27 @@ const listProducts = (
   }
 };
 
+const slistProducts = (
+  category = '',
+  searchKeyword = '',
+  sortOrder = ''
+) => async (dispatch) => {
+  try {
+    dispatch({ type: PRODUCT_LIST_REQUEST });
+    const { data } = await axios.get(
+      '/api/products?vname=' +
+        category +
+        '&searchKeyword=' +
+        searchKeyword +
+        '&sortOrder=' +
+        sortOrder
+    );
+    dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: PRODUCT_LIST_FAIL, payload: error.message });
+  }
+};
+
 const saveProduct = (product) => async (dispatch, getState) => {
   try {
     dispatch({ type: PRODUCT_SAVE_REQUEST, payload: product });
@@ -126,4 +147,5 @@ export {
   saveProduct,
   deleteProdcut,
   saveProductReview,
+  slistProducts,
 };

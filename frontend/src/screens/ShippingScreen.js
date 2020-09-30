@@ -24,7 +24,7 @@ function ShippingScreen(props) {
       <form onSubmit={submitHandler} >
         <ul className="form-container">
           <li>
-            <h2>Shipping</h2>
+            <h2>Customer Information</h2>
           </li>
 
           <li>

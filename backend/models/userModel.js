@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
     type: String, required: true, unique: true, index: true, dropDups: true,
   },
   password: { type: String, required: true },
- 
+ phone1: { type: String},
   isAdmin: { type: Boolean, required: true, default: false },
 });
 

@@ -10,6 +10,7 @@ function RegisterScreen(props) {
   const [name, setName] = useState('');
   
   const [email, setEmail] = useState('');
+  const [phone1, setPhone1] = useState('');
   const [password, setPassword] = useState('');
   const [BUYER, setType] = useState('');
   const [rePassword, setRePassword] = useState('');
@@ -30,7 +31,7 @@ function RegisterScreen(props) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(register(name, email, password));
+    dispatch(register(name, email,phone1, password ));
   }
   return <div className="form">
     <form onSubmit={submitHandler} >
@@ -56,6 +57,13 @@ function RegisterScreen(props) {
             Email
           </label>
           <input type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)}>
+          </input>
+        </li>
+        <li>
+          <label htmlFor="phone1">
+            Phone no.
+          </label>
+          <input type="phone1" name="phone1" id="phone1" onChange={(e) => setPhone1(e.target.value)}>
           </input>
         </li>
         

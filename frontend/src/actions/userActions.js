@@ -46,10 +46,10 @@ const signin1 = (email, password) => async (dispatch) => {
     dispatch({ type: USER_SIGNIN_FAIL, payload: error.message });
   }
 }
-const register = (name, email, password) => async (dispatch) => {
-  dispatch({ type: USER_REGISTER_REQUEST, payload: { name, email, password } });
+const register = (name, email, phone1, password) => async (dispatch) => {
+  dispatch({ type: USER_REGISTER_REQUEST, payload: { name, email, phone1, password} });
   try {
-    const { data } = await Axios.post("/api/users/register", { name, email, password });
+    const { data } = await Axios.post("/api/users/register", { name, email, phone1 , password});
     dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
     Cookie.set('userInfo', JSON.stringify(data));
   } catch (error) {

@@ -8,6 +8,7 @@ import { register } from '../actions/userActions';
 function RegisterScreen(props) {
 
   const [name, setName] = useState('');
+  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [BUYER, setType] = useState('');
@@ -49,6 +50,7 @@ function RegisterScreen(props) {
           <input type="name" name="name" id="name" onChange={(e) => setName(e.target.value)}>
           </input>
         </li>
+        
         <li>
           <label htmlFor="email">
             Email

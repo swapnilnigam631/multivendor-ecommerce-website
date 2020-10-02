@@ -18,6 +18,7 @@ import ProfileScreen from './screens/ProfileScreen';
 import OrdersScreen from './screens/OrdersScreen';
 import SigninScreen1 from './screens/signinasseller';
 import OrdersScreen1 from './screens/OrdersScreen1';
+import PaymentScreen1 from './screens/paymentScreen1';
 import Carousel from 'react-bootstrap-carousel/dist/react-bootstrap-carousel';
 
 function App() {
@@ -88,6 +89,7 @@ function App() {
             <Route path="/sellerProfile/:id" component={ProductsScreen1} />
             <Route path="/shipping" component={ShippingScreen} />
             <Route path="/payment" component={PaymentScreen} />
+            <Route path="/registerpayment" component={PaymentScreen1} />
             <Route path="/placeorder" component={PlaceOrderScreen} />
             <Route path="/signin" component={SigninScreen} />
             <Route path="/sellersignin" component={SigninScreen1} />

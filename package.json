@@ -1,7 +1,7 @@
 {
-  "name": "amazona",
+  "name": "multivendor",
   "version": "1.0.0",
-  "description": "Demo : https://amazonaapp.herokuapp.com/",
+  "description": "Demo",
   "main": "index.js",
   "dependencies": {
     "aws-sdk": "^2.702.0",
@@ -35,14 +35,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/basir/amazona.git"
+    "url": "git+https://github.com/swapnil631"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/basir/amazona/issues"
+    "url": "https://github.com/swapnil631/multivendor"
   },
-  "homepage": "https://github.com/basir/amazona#readme",
+  "homepage": "https://github.com/swapnil631/multivendor#readme",
   "engines": {
     "node": "12.4.0",
     "npm": "6.9.0"

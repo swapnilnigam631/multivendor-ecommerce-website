@@ -620,7 +620,6 @@ background: rgba(0, 0, 0, 0.8);
 
 
 
-
 .c1 .containers .card {
   height:60%;
  
@@ -650,4 +649,14 @@ min-width:80px;
 .c1 img{
   height:250px;
   width:200px;
+}
+
+.kk li ol{
+  display: block;
+  list-style-type: disc;
+  margin-top: 1em;
+  margin-bottom: 1 em;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 40px
 }

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { register } from '../actions/userActions';
 
-
+import { savePayment } from '../actions/cartActions';
 
 function RegisterScreen(props) {
 
@@ -17,7 +17,8 @@ function RegisterScreen(props) {
   const userRegister = useSelector(state => state.userRegister);
   const { loading, userInfo, error } = userRegister;
   const dispatch = useDispatch();
-  
+  const [paymentMethod, setPaymentMethod] = useState('');
+
   const redirect = props.location.search ? props.location.search.split("=")[1] : '/';
   
   useEffect(() => {
@@ -32,6 +33,7 @@ function RegisterScreen(props) {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(register(name, email,phone1, password ));
+    dispatch(savePayment({ paymentMethod }));
   }
   return <div className="form">
     <form onSubmit={submitHandler} >
@@ -77,6 +79,19 @@ function RegisterScreen(props) {
           <input type="password" id="rePassword" name="rePassword" onChange={(e) => setRePassword(e.target.value)}>
           </input>
         </li>
+        <li>
+          <a>Rs.250 Registeration fees</a>
+              <div>
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  id="paymentMethod"
+                  value="paypal"
+                  onChange={(e) => setPaymentMethod(e.target.value)}
+                ></input>
+                <label for="paymentMethod">Paypal</label>
+              </div>
+            </li>
         <li>
           <button type="submit" className="button primary">Register</button>
         </li>

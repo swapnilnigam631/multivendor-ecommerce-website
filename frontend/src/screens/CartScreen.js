@@ -54,7 +54,7 @@ function CartScreen(props) {
 
                   </div>
                   <div>
-                   No. of Persons  :
+                   No. of Months  :
                   <select value={item.qty} onChange={(e) => dispatch(addToCart(item.product, e.target.value))}>
                       {[...Array(item.countInStock).keys()].map(x =>
                         <option key={x + 1} value={x + 1}>{x + 1}</option>
@@ -76,7 +76,7 @@ function CartScreen(props) {
     </div>
     <div className="cart-action">
       <h3>
-        Subtotal ( {cartItems.reduce((a, c) => a + c.qty, 0)} items)
+        Subtotal ( {cartItems.reduce((a, c) => a + c.qty, 0)} months)
         :
          Rs. {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
       </h3>

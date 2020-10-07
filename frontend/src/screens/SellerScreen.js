@@ -173,7 +173,7 @@ function ProductsScreen1(props) {
               </li>
 
               <li>
-                <label htmlFor="countInStock">CountInStock</label>
+                <label htmlFor="countInStock">No. Of Months to rent property</label>
                 <input
                   type="text"
                   name="countInStock"

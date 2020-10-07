@@ -19,9 +19,7 @@ button {
 .full-width {
   width: 100%;
 }
-#root {
-  height: 100%;
-}
+
 .grid-container {
   display: grid;
   grid-template-areas:
@@ -659,4 +657,7 @@ min-width:80px;
   margin-left: 0;
   margin-right: 0;
   padding-left: 40px
+}
+#root {
+  height: 100%;
 }
